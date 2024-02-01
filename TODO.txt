@@ -1,0 +1,18 @@
+task 1:
+Done - Message.java
+Done - MessageUtils.java
+Done - Connection.java
+Done - MessagingClient.java
+Done - MessagingServer.java
+testing
+    result: expected: 56, actual: 0
+    sumetin wong, me not kno yet.
+Optional challenge:
+    If time, can implement messaging protocol
+    that supports exchange of arbitrarily long messages
+    without use of padding.
+
+task 2:
+
+
+task 3:

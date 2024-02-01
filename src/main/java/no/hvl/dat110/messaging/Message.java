@@ -11,10 +11,17 @@ public class Message {
 	public Message(byte[] data) {
 		
 		// TODO - START
-		
+		if(data != null && data.length <=127){
+			this.data = data;
+		} else {
+			throw new IllegalArgumentException("Data can not be null or more then 127 bytes.");
+		}
+
+		/* this part is done, so commenting out the message to user about this part missing.
 		if (true)
 			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
+			*/
+
 		// TODO - END
 	}
 
