@@ -24,8 +24,14 @@ public class MessageUtils {
 
 		if(data!=null && data.length <= SEGMENTSIZE){
 			segment = new byte[SEGMENTSIZE];
+			// Store the length of the message data at the first index of the segment
+			segment[0] = (byte) data.length;
+			// Copy the message data into the segment
+			for (int i = 1; i <= data.length; i++) {
+				segment[i] = data[i-1];
+			}
 		} else{
-			throw new IllegalArgumentException("Data is too large to encapsulate");
+			throw new IllegalArgumentException("Data is too large to encapsulate.");
 		}
 
 		/* Done
@@ -44,9 +50,14 @@ public class MessageUtils {
 		// TODO - START
 		// decapsulate segment and put received payload data into a message
 		if(segment != null && segment.length == SEGMENTSIZE){
-			message = new Message(segment);
+			int length = segment[0];
+			byte[] data = new byte[length];
+			for (int i = 1; i < length + 1; i++) {
+				data[i-1] = segment[i];
+			}
+			message = new Message(data);
 		} else {
-			throw new IllegalArgumentException("Illegal segment for decapsulation");
+			throw new IllegalArgumentException("Illegal segment for decapsulation.");
 		}
 
 		/* done

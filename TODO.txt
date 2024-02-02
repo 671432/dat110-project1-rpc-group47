@@ -5,8 +5,7 @@ Done - Connection.java
 Done - MessagingClient.java
 Done - MessagingServer.java
 testing
-    result: expected: 56, actual: 0
-    sumetin wong, me not kno yet.
+    result == success
 Optional challenge:
     If time, can implement messaging protocol
     that supports exchange of arbitrarily long messages
