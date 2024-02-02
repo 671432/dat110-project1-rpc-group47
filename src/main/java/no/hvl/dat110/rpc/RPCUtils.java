@@ -11,12 +11,17 @@ public class RPCUtils {
 		byte[] rpcmsg = null;
 		
 		// TODO - START
-		
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
-		
+		rpcmsg = new byte[payload.length + 1];
+		rpcmsg[0] = rpcid;
+		for (int i = 0; i < rpcmsg.length-1; i++){
+			rpcmsg[i+1] = payload[i];
+		}
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return rpcmsg;
@@ -27,12 +32,15 @@ public class RPCUtils {
 		byte[] payload = null;
 		
 		// TODO - START
-		
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
-		
+		payload = new byte[rpcmsg.length - 1];
+		for (int i = 0; i < rpcmsg.length - 1; i++) {
+			payload[i] = rpcmsg[i + 1];
+		}
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return payload;
@@ -44,11 +52,13 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START 
-		
+		// TODO - START
+		encoded = str.getBytes();
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return encoded;
@@ -60,10 +70,18 @@ public class RPCUtils {
 		String decoded = null; 
 		
 		// TODO - START 
-		
+		decoded = "";
+		char[] results = new char[data.length];
+		for(int i = 0; i<data.length; i++) {
+			results[i] = (char) data[i];
+			decoded += results[i];
+		}
+		decoded = new String(data);
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return decoded;
@@ -74,10 +92,12 @@ public class RPCUtils {
 		byte[] encoded = null;
 		
 		// TODO - START 
-		
+		encoded = new byte[0];
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-				
+		*/
 		// TODO - END
 		
 		return encoded;
@@ -87,10 +107,10 @@ public class RPCUtils {
 	public static void unmarshallVoid(byte[] data) {
 		
 		// TODO
-		
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 	}
 
 	// convert boolean to a byte array representation
@@ -120,11 +140,15 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START 
-		
+		// TODO - START
+		ByteBuffer bb = ByteBuffer.allocate(4);
+		bb.putInt(x);
+		encoded = bb.array();
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return encoded;
@@ -136,10 +160,12 @@ public class RPCUtils {
 		int decoded = 0;
 		
 		// TODO - START 
-		
+		decoded = ByteBuffer.wrap(data).getInt();
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		
 		return decoded;

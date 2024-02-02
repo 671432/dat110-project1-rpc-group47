@@ -12,6 +12,29 @@ Optional challenge:
     without use of padding.
 
 task 2:
-
+-RPC only supports: void, String, int, and boolean
+-it is assumed that the marshalled parameter and return values can be represented using at most 127 bytes.
+-middleware does not support automatic generation of stub-code
+    and the marshalling and unmarshalling of parameters and return values.
+    The (un)marshalling will have to be implemented manually by the developer using the RPC middleware.
+Done - RPCUtils.java
+Done - RPCClient.java
+Done - RPCServer.java
+testing
+    Result: Success
+Optional challenges:
+    If time, implementing RPC layer where methods can have more than a single parameter.
+    investigate how to implement automatic code generation of client-side and server-side stub-code
+    which would be first step to supporting arbitrary Java-objects as parameter and return types.
+    consider making RPC server multi-threaded such that multiple simultaneous clients can be handled.
 
 task 3:
+-The abstract class RPCLocalStub will be relevant in task 3
+    as the client-side of an RPC-call is to extend this class
+    such that it gets access to the RPC middleware for making remote calls.
+-The abstract class RPCRemoteImpl is to be used in task 3.
+DisplayStub.java
+Controller.java
+DisplayImpl.java
+DisplayDevice.java
+testing

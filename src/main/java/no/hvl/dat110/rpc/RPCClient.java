@@ -3,6 +3,9 @@ package no.hvl.dat110.rpc;
 import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.*;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
+
 public class RPCClient {
 
 	// underlying messaging client used for RPC communication
@@ -16,14 +19,16 @@ public class RPCClient {
 		msgclient = new MessagingClient(server,port);
 	}
 	
-	public void connect() {
+	public void connect() { //throws UnknownHostException, IOException
 		
 		// TODO - START
 		// connect using the RPC client
-		
+		connection = msgclient.connect();
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 	}
 	
@@ -31,10 +36,12 @@ public class RPCClient {
 		
 		// TODO - START
 		// disconnect by closing the underlying messaging connection
-		
+		connection.close();
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 	}
 
@@ -58,10 +65,21 @@ public class RPCClient {
 		The return value from the RPC call must be decapsulated according to the RPC message format
 
 		*/
-				
+		connection.send(new Message(RPCUtils.encapsulate(rpcid, param)));
+		returnval = RPCUtils.decapsulate(connection.receive().getData());
+
+//		try {
+//			connection.send(new Message(RPCUtils.encapsulate(rpcid, param)));
+//			returnval = RPCUtils.decapsulate(connection.receive().getData());
+//		} catch (IOException ex) {
+//			System.out.println("Error at call: " + ex);
+//			ex.printStackTrace();
+//		}
+
+		/* done
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
-		
+		*/
 		// TODO - END
 		return returnval;
 		
