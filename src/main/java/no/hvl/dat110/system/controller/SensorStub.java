@@ -5,7 +5,8 @@ import no.hvl.dat110.rpc.*;
 
 public class SensorStub extends RPCLocalStub {
 
-	public SensorStub(RPCClient rpcclient) {
+	public SensorStub(RPCClient rpcclient)
+	{
 		super(rpcclient);
 	}
 
