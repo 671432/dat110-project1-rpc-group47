@@ -25,7 +25,6 @@ public class DisplayDevice {
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
 		 */
-		
 		// TODO - END
 		
 		System.out.println("Display server stopping ...");
