@@ -19,7 +19,7 @@ public class DisplayStub extends RPCLocalStub {
 
 		rpcclient.call((byte)Common.WRITE_RPCID, request);
 
-		RPCUtils.unmarshallString(request);
+		//RPCUtils.unmarshallString(request);
 
 
 		//remove code under after implementing write-method

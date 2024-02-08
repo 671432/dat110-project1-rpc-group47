@@ -52,6 +52,7 @@ public class MessageUtils {
 		if(segment != null && segment.length == SEGMENTSIZE){
 			int length = segment[0];
 			byte[] data = new byte[length];
+
 			for (int i = 1; i < length + 1; i++) {
 				data[i-1] = segment[i];
 			}

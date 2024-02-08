@@ -2,6 +2,8 @@ package no.hvl.dat110.messaging;
 
 import no.hvl.dat110.TODO;
 
+import java.util.Arrays;
+
 public class Message {
 
 	// the up to 127 bytes of data (payload) that a message can hold

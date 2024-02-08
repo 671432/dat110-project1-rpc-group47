@@ -33,8 +33,9 @@ public class Controller {
 
 
 		for (int i = 0; i < N; i++) {
-			int temp = sensor.read();
-			display.write(String.valueOf(temp)); // Write temperature to the display
+//			int temp = sensor.read();
+//			display.write(String.valueOf(temp)); // Write temperature to the display
+			display.write(" Temperatur: " + sensor.read());
 			// Code under for sleeping if necessary
 
 			/*
